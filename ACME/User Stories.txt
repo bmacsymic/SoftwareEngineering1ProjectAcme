@@ -1,0 +1,116 @@
+Group 9
+-------
+Bradley Macsymic
+Alex Salomon
+Kyle MacKinnon
+
+User Stories for Iteration 2
+----------------------------
+-Customer register personal info
+	Priority: High		Cost 1 Day
+	
+-Customer view personal info
+	Priority: High		Cost 2 Days
+	
+-Customer edit personal info
+	Priority: High		Cost 2 Days
+	
+-Customer Add Items to Shopping Cart
+	Priority: Medium	Cost 2 Days
+	
+-Customer View Shopping Cart
+	Priority: Medium	Cost 4 Days
+	
+-Customer Remove Items from Shopping Cart
+	Priority: Medium	Cost 2 Days
+	
+-Customer Modify Items in Shopping Cart
+	Priority: Medium	Cost 4 Days
+
+NOTE: THIS WAS NOT COMPLETED THIS ITERATION
+-Customer Buy Items in Shopping Cart
+	Priority: Low	Cost: 4 Days
+
+User Stories for Iteration 3
+----------------------------
+-Customer Buy Items in Shopping Cart
+	Priority: High		Cost: 2 days
+	
+-Customer View Order History
+	Priority: Medium	Cost: 3 days
+	
+-Staff View Statistics
+	Priority: Low		Cost: 2 days
+	
+-Staff Reset Customer Information
+	Priority: Low		Cost: 1 day
+
+
+Developer Tasks for Iteration 2
+-------------------------------
+Relating to Customer Personal Info:
+2h - User Objects - Last name, first name, birthday, address
+5h - Familiarize self with WindowBuilder
+2h - make pages (1 page - users)
+2h - modify existing customer page
+2h - write code for event listeners
+2h - modify home page (user select)
+
+Relating to Customer Using Shopping Cart:
+4h - shopping cart class object
+5h - shopping cart addition
+3h - add to shopping cart
+3h - delete from shopping cart
+3h - business logic object to get shopping cart list
+3h - Calculate shopping total business logic class
+
+Relating to Implementing the Embedded Database:
+4h - Familiarize self with database lib
+3h - Database initialize
+3h - Search DB
+3h - Insert into DB
+3h - Delete from DB
+1h - Script for database - fill values at start
+
+Developer Tasks for Iteration 3
+-------------------------------
+
+Unit Testing - Everyone
+Priority: High
+ - Re-evaluate existing unit tests (Time: 2h)
+ 
+Integration testing - Kyle
+Priority: High
+ - Familiarize with integration testing (Time: 2h)
+ - (we might have some of this, or all of this done) (Time: 2h)
+ - Make sure tests work with the actual database (Time: 2h)
+ - Integration between business objects and DO(might have already done) (Time: 2h)
+ 
+Customer testing (CTunit) - Alex
+Priority: High
+ - Familiarize with CTunit (Time: 4h)
+ - Configure CTUnit in GUI (Time: 3h)
+ - Write scripts (Time: 4h 30m)
+ 
+Retrospective activity - Kyle
+Priority: High
+ - What went wrong (2nd iteration), how to fix (this iteration), success criteria (Time: 2h)
+ 
+Add lots of items into the database - Kyle
+Priority: High
+ - Adding Items (Time: 2h 30m)
+
+Customer Buy Items - Brad 
+Priority: High
+ - Implement calculate costs into shopping cart (Time: 2h)
+ - Delete existing shopping cart(Time: 2h)
+ - View the functionality of the checkout button (Time: 3h)
+ - Display appropriate confirmation message (Time: 1h)
+ - Create CC validation page (Time: 3h)
+ 
+Customer View Order History (Implement last) - (judge according to time constraint)
+Priority: Low
+ - Link currently purchased items to user object (Time: 2h)
+ - Create new object (Time: 3h)
+ - Create new table (Time: 4h)
+ - Create new business object (Time: 4h)

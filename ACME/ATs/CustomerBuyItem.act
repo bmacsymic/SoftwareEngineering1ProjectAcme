@@ -1,0 +1,61 @@
+Include                 common.def
+
+InvokeMethod			acme.application.Main					resetDatabaseToCTdefault
+
+InvokeMethod            acme.application.Main					startUp
+
+UserSelectsComboByIndex	acme.presentation.MainWindow			usersList			0
+
+UserClicksButton        acme.presentation.MainWindow       		customerButton
+
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 2"
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnEdit
+
+UserSetsTextField       acme.presentation.ShoppingCartWindow	textQuantity		50
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnUpdate
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnCheckOut
+
+TestTextField           acme.presentation.CheckOutWindow	    textGrandTotal		"$2630.88"
+
+UserSetsTextField       acme.presentation.CheckOutWindow		textNameOnCC		"Master Card"
+
+UserSetsTextField       acme.presentation.CheckOutWindow		textCCNumber		123456789
+
+UserSetsTextField       acme.presentation.CheckOutWindow		textCCIDNumber		123456789
+
+UserSetsTextField       acme.presentation.CheckOutWindow		textExpiryDate		"05/2013"
+
+UserClicksButton        acme.presentation.CheckOutWindow		btnSubmit
+
+TestTextField           acme.presentation.CheckOutWindow	    textConfirmation	"Order has been accepted. Thank You!"
+
+UserClicksButton        acme.presentation.CheckOutWindow		btnCancel
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+
+UserClicksButton        acme.presentation.CustomerWindow		btnExit
+
+UserClicksButton        acme.presentation.MainWindow			exitButton
+
+InvokeMethod			acme.application.Main					shutDown
+
+InvokeMethod			acme.application.Main					resetDatabaseToOriginalState

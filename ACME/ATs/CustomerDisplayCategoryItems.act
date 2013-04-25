@@ -1,0 +1,96 @@
+Include                 common.def
+
+InvokeMethod				acme.application.Main					resetDatabaseToCTdefault
+
+InvokeMethod            	acme.application.Main              		startUp
+
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			0
+
+UserClicksButton        	acme.presentation.MainWindow       		customerButton
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryOne
+
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+InvokeMethod				acme.presentation.CustomerWindow		unselectCategoryOne
+
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryTwo
+
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryThree
+
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserClicksButton        	acme.presentation.CustomerWindow        btnUncheckAll
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserClicksButton        	acme.presentation.CustomerWindow		btnExit
+
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			1
+
+UserClicksButton        	acme.presentation.MainWindow       		staffButton
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryOne
+
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+InvokeMethod				acme.presentation.StaffWindow			unselectCategoryOne
+
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryTwo
+
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryThree
+
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+UserClicksButton       	 	acme.presentation.StaffWindow        	btnUncheckAll
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+UserClicksButton        	acme.presentation.StaffWindow			btnExit
+
+UserClicksButton        	acme.presentation.MainWindow			exitButton
+
+InvokeMethod				acme.application.Main					shutDown
+
+InvokeMethod				acme.application.Main					resetDatabaseToOriginalState
+

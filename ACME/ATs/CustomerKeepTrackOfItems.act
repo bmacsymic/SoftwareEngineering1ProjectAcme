@@ -1,0 +1,59 @@
+Include                 common.def
+
+InvokeMethod			acme.application.Main					resetDatabaseToCTdefault
+
+InvokeMethod            acme.application.Main					startUp
+
+UserSelectsComboByIndex	acme.presentation.MainWindow			usersList			0
+
+UserClicksButton        acme.presentation.MainWindow       		customerButton
+
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnEdit
+
+UserSetsTextField       acme.presentation.ShoppingCartWindow	textQuantity		50
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnUpdate
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 3"
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnRemove
+
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 3"
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnRemove
+
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+
+UserClicksButton        acme.presentation.CustomerWindow		btnExit
+
+UserClicksButton        acme.presentation.MainWindow			exitButton
+
+InvokeMethod			acme.application.Main					shutDown
+
+InvokeMethod			acme.application.Main					resetDatabaseToOriginalState

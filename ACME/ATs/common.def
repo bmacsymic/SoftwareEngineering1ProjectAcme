@@ -1,0 +1,51 @@
+# generic utility verbs
+Declare Compare                         com.exoftware.act.commands.utility.CompareCommand
+Declare CompareFilesCommand             com.exoftware.act.commands.utility.CompareFilesCommand
+Declare SetProperty                     com.exoftware.act.commands.utility.SetPropertyCommand
+Declare GenerateUniqueParameterValue    com.exoftware.act.commands.utility.GenerateUniqueParameterValueCommand
+Declare Print                           com.exoftware.act.commands.utility.PrintCommand
+
+# GUI Extensions
+Declare UserClicksButton                ctunit.UserClicksButtonCommand
+
+Declare UserRightClick					ctunit.UserRightClickCommand
+Declare UserSelectsMenu                 ctunit.UserSelectsMenuCommand
+Declare UserSelectsMenuItem             ctunit.UserSelectsMenuItemCommand
+
+Declare UserSelectsTableRowByIndex      ctunit.UserSelectsTableRowByIndexCommand
+Declare UserSelectsTableRowByValue      ctunit.UserSelectsTableRowByValueCommand
+Declare TestTableByColumnIndex		ctunit.TestTableByColumnIndexCommand
+Declare TestTableByColumnLabel		ctunit.TestTableByColumnLabelCommand
+
+Declare UserSelectsTab                  ctunit.UserSelectsTabCommand
+
+Declare UserSelectsList                 ctunit.UserSelectsListCommand
+
+Declare UserGetsTextField               ctunit.UserGetsTextFieldCommand
+Declare UserSetsTextField               ctunit.UserSetsTextFieldCommand
+Declare TestTextField                   ctunit.TestTextFieldCommand
+
+Declare UserSetsCombo			ctunit.UserSetsComboCommand
+Declare UserGetsCombo			ctunit.UserGetsComboCommand
+Declare TestComboValue			ctunit.TestComboValueCommand
+Declare UserSelectsComboByIndex		ctunit.UserSelectsComboByIndexCommand
+Declare UserSelectsComboByValue		ctunit.UserSelectsComboByValueCommand
+
+Declare UserExpandsTree			ctunit.UserExpandsTreeCommand
+Declare UserCollapsesTree		ctunit.UserCollapsesTreeCommand
+Declare UserSelectsTree			ctunit.UserSelectsTreeCommand
+Declare TestTreeSelection			ctunit.TestTreeSelectionCommand
+
+Declare UserGetsString                  ctunit.UserGetsStringCommand
+Declare TestString                      ctunit.TestStringCommand
+
+Declare InvokeMethod                    ctunit.InvokeMethodCommand
+
+Declare Close                           ctunit.CloseCommand
+
+# User Extensions
+# Declare PrintParameters		usercommands.PrintParametersCommand
+
+# properties
+SetProperty answer  yes
+SetProperty trace   on

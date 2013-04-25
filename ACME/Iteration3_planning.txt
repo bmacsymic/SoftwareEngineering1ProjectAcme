@@ -1,0 +1,43 @@
+Meeting Notes
+-	Unit Testing - Everyone
+	o	Re-evaluate existing unit tests (Time: 2h)
+-	Integration testing - Kyle
+	o	Familiarize with integration testing (Time: 2h)
+	o	 (we might have some of this, or all of this done) (Time: 2h)
+	o	Make sure tests work with the actual database (Time: 2h)
+	o	Integration between business objects and DO(might have already done) (Time: 2h)
+		- Need to test with actual database (we currently just use stub to test)
+-	Customer testing (CTunit) - Alex
+	o	Familiarize with CTunit (Time: 4h)
+	o	Configure CTUnit in GUI (Time: 3h)
+	o	Write scripts (Time: 4h 30m)
+		-	One automated script for each big user story
+-	Retrospective activity (Time: 2h) - Kyle
+	-	What went wrong (2nd iteration), how to fix (this iteration), success criteria
+		- Too much in one iteration
+		- Only this course to do, not correct(we have other courses and workload)
+		- Testing under rated
+		- Shopping cart 2nd, and buy first, not other way around
+		- More brainstorming required
+	o	1/2 page discussion on feature
+	o	Customer buy moved to 3rd
+	o	Low 3rd priority user stories (might not have time)
+-	Add lots of items into the database
+Customer Buy Items - Brad
+-	implement calculate costs into shopping cart
+		- May need to slightly modify business object
+-	Delete existing shopping cart(Time: 1h)
+-	View the functionality of the checkout button (Time: 2h)
+-	Display appropriate confirmation message (Time: 1h)
+-	Create CC validation page (Time: 1h)
+	o	Familiarize self with Window Builder Pro (Time: 4h)
+Priority: High
+----------------------------------------------------------------------------------
+Customer View Order History (Implement last) - (judge according to time constraint)
+-	Link currently purchased items to user object 
+	o	Create new object (Time: 3h)
+	o	Create new table (Time: 4h)
+	o	Create new business object (Time: 4h)
+Priority: Medium
+
+-	Power Point (after hand in work on this) 

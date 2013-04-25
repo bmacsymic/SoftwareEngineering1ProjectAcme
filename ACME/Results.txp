@@ -1,0 +1,306 @@
+
+Starting customer tests.
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\CustomerBuyItem.act
+InvokeMethod			acme.application.Main					resetDatabaseToCTdefault
+InvokeMethod            acme.application.Main					startUp
+Opened HSQL database acme
+UserSelectsComboByIndex	acme.presentation.MainWindow			usersList			0
+UserClicksButton        acme.presentation.MainWindow       		customerButton
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 2"
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnEdit
+UserSetsTextField       acme.presentation.ShoppingCartWindow	textQuantity		50
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnUpdate
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnCheckOut
+TestTextField           acme.presentation.CheckOutWindow	    textGrandTotal		"$2630.88"
+UserSetsTextField       acme.presentation.CheckOutWindow		textNameOnCC		"Master Card"
+UserSetsTextField       acme.presentation.CheckOutWindow		textCCNumber		123456789
+UserSetsTextField       acme.presentation.CheckOutWindow		textCCIDNumber		123456789
+UserSetsTextField       acme.presentation.CheckOutWindow		textExpiryDate		"05/2013"
+UserClicksButton        acme.presentation.CheckOutWindow		btnSubmit
+TestTextField           acme.presentation.CheckOutWindow	    textConfirmation	"Order has been accepted. Thank You!"
+UserClicksButton        acme.presentation.CheckOutWindow		btnCancel
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+UserClicksButton        acme.presentation.CustomerWindow		btnExit
+UserClicksButton        acme.presentation.MainWindow			exitButton
+InvokeMethod			acme.application.Main					shutDown
+Closed HSQL database acme
+InvokeMethod			acme.application.Main					resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\CustomerBuyItem.act   passed 
+
+=========================================================
+
+Tests passed: 4; tests failed: 0; invalid parameters: 0.
+
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\CustomerDisplayCategoryItems.act
+InvokeMethod				acme.application.Main					resetDatabaseToCTdefault
+InvokeMethod            	acme.application.Main              		startUp
+Opened HSQL database acme
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			0
+UserClicksButton        	acme.presentation.MainWindow       		customerButton
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryOne
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+InvokeMethod				acme.presentation.CustomerWindow		unselectCategoryOne
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryTwo
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+InvokeMethod				acme.presentation.CustomerWindow		selectCategoryThree
+InvokeMethod				acme.presentation.CustomerWindow		callFilterProducts
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserClicksButton        	acme.presentation.CustomerWindow        btnUncheckAll
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserClicksButton        	acme.presentation.CustomerWindow		btnExit
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			1
+UserClicksButton        	acme.presentation.MainWindow       		staffButton
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryOne
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+InvokeMethod				acme.presentation.StaffWindow			unselectCategoryOne
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryTwo
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+InvokeMethod				acme.presentation.StaffWindow			selectCategoryThree
+InvokeMethod				acme.presentation.StaffWindow			callFilterProducts
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+UserClicksButton       	 	acme.presentation.StaffWindow        	btnUncheckAll
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+UserClicksButton        	acme.presentation.StaffWindow			btnExit
+UserClicksButton        	acme.presentation.MainWindow			exitButton
+InvokeMethod				acme.application.Main					shutDown
+Closed HSQL database acme
+InvokeMethod				acme.application.Main					resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\CustomerDisplayCategoryItems.act   passed 
+
+=========================================================
+
+Tests passed: 0; tests failed: 0; invalid parameters: 0.
+
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\CustomerDisplaySearchedItems.act
+InvokeMethod				acme.application.Main					resetDatabaseToCTdefault
+InvokeMethod            	acme.application.Main              		startUp
+Opened HSQL database acme
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			0
+UserClicksButton        	acme.presentation.MainWindow      		customerButton
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 1"
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 2"
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 3"
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM"
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			random
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+UserClicksButton       	 	acme.presentation.CustomerWindow		btnExit
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			1
+UserClicksButton        	acme.presentation.MainWindow      		staffButton
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 1"
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 2"
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 3"
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM"
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			random
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+UserClicksButton       		acme.presentation.StaffWindow			btnExit
+UserClicksButton        	acme.presentation.MainWindow			exitButton
+InvokeMethod				acme.application.Main					shutDown
+Closed HSQL database acme
+InvokeMethod				acme.application.Main					resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\CustomerDisplaySearchedItems.act   passed 
+
+=========================================================
+
+Tests passed: 0; tests failed: 0; invalid parameters: 0.
+
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\CustomerKeepTrackOfItems.act
+InvokeMethod			acme.application.Main					resetDatabaseToCTdefault
+InvokeMethod            acme.application.Main					startUp
+Opened HSQL database acme
+UserSelectsComboByIndex	acme.presentation.MainWindow			usersList			0
+UserClicksButton        acme.presentation.MainWindow       		customerButton
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnEdit
+UserSetsTextField       acme.presentation.ShoppingCartWindow	textQuantity		50
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnUpdate
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+UserSelectsList			acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+UserClicksButton        acme.presentation.CustomerWindow		btnAdd
+UserClicksButton        acme.presentation.CustomerWindow		btnViewShoppingCart
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 3"
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		1
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 1"
+TestTextField           acme.presentation.ShoppingCartWindow    textQuantity		50
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnRemove
+UserSelectsList			acme.presentation.ShoppingCartWindow	shoppingCartList	"ITEM 3"
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnRemove
+UserClicksButton        acme.presentation.ShoppingCartWindow	btnExit
+UserClicksButton        acme.presentation.CustomerWindow		btnExit
+UserClicksButton        acme.presentation.MainWindow			exitButton
+InvokeMethod			acme.application.Main					shutDown
+Closed HSQL database acme
+InvokeMethod			acme.application.Main					resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\CustomerKeepTrackOfItems.act   passed 
+
+=========================================================
+
+Tests passed: 4; tests failed: 0; invalid parameters: 0.
+
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\CustomerMaintainAccInfo.act
+InvokeMethod			acme.application.Main			resetDatabaseToCTdefault
+InvokeMethod            acme.application.Main			startUp
+Opened HSQL database acme
+UserClicksButton        acme.presentation.MainWindow	usersButton
+UserClicksButton        acme.presentation.UsersWindow	btnAdd
+UserSetsTextField       acme.presentation.UsersWindow	textFirstName			first
+UserSetsTextField       acme.presentation.UsersWindow	textLastName			last
+UserSetsTextField       acme.presentation.UsersWindow	textBirthdate			"01/01/1900"
+UserSetsTextField       acme.presentation.UsersWindow	textStreetAddress		"300 - Chancellor Dr."
+UserSetsTextField       acme.presentation.UsersWindow	textPostalCode			"R3T-8T8"
+UserSetsTextField       acme.presentation.UsersWindow	textCity				Winnipeg
+UserSetsTextField       acme.presentation.UsersWindow	textProvince			Manitoba
+UserSetsTextField       acme.presentation.UsersWindow	textCountry				Canada
+UserSetsTextField       acme.presentation.UsersWindow	textPhoneNumber			"(204)295-2929"
+UserSetsTextField       acme.presentation.UsersWindow	textEmail				"email@email.ca"
+TestComboValue			acme.presentation.UsersWindow	comboType				Customer
+UserClicksButton        acme.presentation.UsersWindow	btnAdd
+UserClicksButton        acme.presentation.UsersWindow	btnEdit
+UserSetsTextField       acme.presentation.UsersWindow	textFirstName			NewFirsty
+UserSetsTextField       acme.presentation.UsersWindow	textLastName			NewLasty
+UserClicksButton        acme.presentation.UsersWindow	btnUpdate
+TestTextField           acme.presentation.UsersWindow	textFirstName			NewFirsty
+TestTextField           acme.presentation.UsersWindow	textLastName			NewLasty
+TestTextField      		acme.presentation.UsersWindow    textBirthdate			"01/01/1900"
+TestTextField       	acme.presentation.UsersWindow    textStreetAddress		"300 - Chancellor Dr."
+TestTextField       	acme.presentation.UsersWindow    textPostalCode			"R3T-8T8"
+TestTextField       	acme.presentation.UsersWindow    textCity				Winnipeg
+TestTextField       	acme.presentation.UsersWindow    textProvince			Manitoba
+TestTextField       	acme.presentation.UsersWindow    textCountry			Canada
+TestTextField       	acme.presentation.UsersWindow    textPhoneNumber		"(204)295-2929"
+TestTextField       	acme.presentation.UsersWindow    textEmail				"email@email.ca"
+UserClicksButton        acme.presentation.UsersWindow	btnRemove
+UserClicksButton        acme.presentation.UsersWindow	btnExit
+UserClicksButton        acme.presentation.MainWindow	exitButton
+InvokeMethod			acme.application.Main			shutDown
+Closed HSQL database acme
+InvokeMethod			acme.application.Main			resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\CustomerMaintainAccInfo.act   passed 
+
+=========================================================
+
+Tests passed: 11; tests failed: 0; invalid parameters: 0.
+
+*********************************************************************
+Filename: Y:\ummack57\Profile\workspace\ACME\ats\StaffModifyingItems.act
+InvokeMethod				acme.application.Main				resetDatabaseToCTdefault
+InvokeMethod            	acme.application.Main              	startUp
+Opened HSQL database acme
+UserSelectsComboByIndex		acme.presentation.MainWindow		usersList			1
+UserClicksButton        	acme.presentation.MainWindow       	staffButton
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 3"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 1"
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+TestTextField          		acme.presentation.StaffWindow		txtName				"ITEM 1"
+TestTextField         		acme.presentation.StaffWindow		txtDescription		desc1
+TestTextField           	acme.presentation.StaffWindow		txtPrice			"10.0"
+TestTextField           	acme.presentation.StaffWindow		txtQuantity			100
+UserSetsTextField       	acme.presentation.StaffWindow		txtName				Test
+UserSetsTextField       	acme.presentation.StaffWindow		txtQuantity			1000
+UserClicksButton        	acme.presentation.StaffWindow		btnUpdate
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"Test"
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+TestTextField          		acme.presentation.StaffWindow		txtName				"Test"
+TestTextField         		acme.presentation.StaffWindow		txtDescription		desc1
+TestTextField           	acme.presentation.StaffWindow		txtPrice			10.0
+TestTextField           	acme.presentation.StaffWindow		txtQuantity			1000
+UserClicksButton        	acme.presentation.StaffWindow		btnRemove
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 2"
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 3"
+UserSetsTextField       	acme.presentation.StaffWindow		txtName				"ITEM 1"
+UserSetsTextField       	acme.presentation.StaffWindow		txtDescription		test
+UserSetsTextField          	acme.presentation.StaffWindow		txtPrice			10.0
+UserSetsTextField          	acme.presentation.StaffWindow		txtQuantity			100
+UserClicksButton        	acme.presentation.StaffWindow		btnAdd
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 1"
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+TestTextField       		acme.presentation.StaffWindow		txtName				"ITEM 1"
+TestTextField     		  	acme.presentation.StaffWindow		txtDescription		test
+TestTextField      	    	acme.presentation.StaffWindow		txtPrice			10.0
+TestTextField      	    	acme.presentation.StaffWindow		txtQuantity			100
+UserClicksButton    	    acme.presentation.StaffWindow		btnExit
+UserClicksButton    	    acme.presentation.MainWindow		exitButton
+InvokeMethod				acme.application.Main				shutDown
+Closed HSQL database acme
+InvokeMethod				acme.application.Main				resetDatabaseToOriginalState
+======================= Results =========================
+
+Y:\ummack57\Profile\workspace\ACME\ats\StaffModifyingItems.act   passed 
+
+=========================================================
+
+Tests passed: 12; tests failed: 0; invalid parameters: 0.
+
+Total tests passed: 31; total tests failed: 0; total invalid parameters: 0.
+
+Finished customer tests.

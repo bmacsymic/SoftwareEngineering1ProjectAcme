@@ -1,0 +1,528 @@
+5 July
+------
+Group - Time Spent: 30m
+-Final test checking before electronic handin
+
+Kyle MacKinnon - Time Spent: 10m
+I dealt with the bug, burned its legs of with a magnifying glass before squashing it quite thoroughly with
+the sole of my shoe.
+
+Solution: Check for null value when calling the method, if null, make it the callers responsibility to
+		  reinitialize to an empty data structure. Requires two lines on code copied in about 3 places.
+
+4 July
+------
+Alex Salomon - Time Spent: 4h
+- Fixed a bug in the CustomerDisplayCategoryItems customer test
+	- When selecting the category, the listener wasnt being called in order to filter the list
+	- Finished with customer tests
+- Added set methods to ItemCategory class
+- Added AccessItemCategoryTest class
+- Found bugs in the DatabaseStub and fixed it with Kyle
+- Finished tests with AccessItemCategory
+
+*************UPDATE: I found a bug in our program
+	Remember that my customer test failed before we left the lab? Yeah, apparently there is
+	at least one benefit in doing automated acceptance tests!
+		- In the Staff window, when we update (or create) an item that has name "" or no categories 
+			selected, our program crashes with a NullPointerException when I try to click on the
+			item in the table. I went after the cause and it seems that the last modifications to the
+			AccessItemCategory are the reason. We modified the class to return null if blank values
+			are passed. 
+	I understand that the changes were made in the database since the problem is with the resultSet
+	variable return with size 0 in the getItemCategory method (AccessItemCategory class) 
+	
+	I modified the StaffWindow to not allow the a staff member to insert / update items with "" name 
+	However I am not sure how to make the appropriate changes in the database.
+	
+	TODO: - Modify database to accept no categories (since in our application the categories
+			are check buttons (not radio buttons) and allow for multiple selection OR no selection
+			at all.
+		  - Check if tests will work after modification
+		  - Remember to set the customer tests to .act extension!
+
+Kyle MacKinnon - Time Spent: 1h
+-Updated AccessItemCategory.java so all methods are passing ItemCategory objects as parameters now
+-Finished AccessItemCategoryTest.java integration test all integration tests pass now
+-Fix up small bugs in Compile.bat, setClasspath.bat, now batch files run in E2-430 labs as well
+
+Brad - Time Spent: 1h
+-Modified User Stories to include new items from this iteration
+-modified README file to include new items from this iterations
+
+3 July
+------
+Kyle MacKinnon - Time Spent: 2h
+-Retrospective Activity
+-Clean up code, fix up shell scripts
+-Fixed the wierd shopping cart bug in Alex's Email:
+
+"I finally finished all my ct tests as well, however there is one bug that is given me 4 fails.
+When adding an item to the shopping cart and changing the quantity, if I exit the shopping cart view and return, the changes were not made and I have quantity 1 in the cart again.
+I tried fixing this bug, however I could not see why this was happening. Maybe problems with the database?"
+
+--see btnUpdate.addSelectionListener, I swear this is really really weird, I think it has something to do with
+--the anonymous class stuff because the value was being changed to 1 before even getting to the db
+
+Alex Salomon - Time Spent: 4:30h
+- Added the CustomerBuyItem customer test
+- Found two bugs related to the shopping cart (Brad was working on them already)
+- Modified StaffWindow by adding a mapTableSelectionToDetails method that is called whenever a 
+	table is selected in order to show the details of the item. By invoking this method in the 
+	customer test it solves the problem of selecting a table and not having the	item description 
+	being filled in the text field.
+- Made small changes in a few of the customer tests
+- Tests fail 6 times.
+	- fixed two of the problems in the tests
+	- Find out there's another bug: 
+		1)In the shopping cart, when editing the quantity of items the customer
+			wants to buy, after pressing the update button, the value is not updated.
+		2)When purchasing an Item, if you purchase the exact amount we have in store, the item is
+			still there, but with quantity = 0. We should delete the item from the data base, or
+			simply not show the customer items that have quantity 0.
+- Fixed the second bug. Customers cannot see items with quantity = 0, but it is still in the database
+	and the staff can edit it, in case they receive more of the item.
+- Finished all Customer Tests!!
+
+Brad - Time Spent: 4h
+-made it so that a user can only enter of max number of quantity of
+the item's quantity which will depleat the quantity currently at the store
+when the customer actually purchases the items
+-made it so the shopping cart would be updated on the CustomerWindow, ShoppingCatWindow
+when the user made a purchase
+-remove in the shoppingCartWindow wasn't updating the one in the customer window as well, fixed that
+-added scrolling to the users/customerwindow/shoppingcartwindow 
+-fixed it so that the text would wrap for the description boxes, meaning that the
+user could not see the complete description instead of a cut off version as was before
+-fixed first bug that Alex reported above
+
+Fixed reported bugs:
+ 1) On the staff window, double clicking on the image and closing the window
+that shows up makes the NO IMAGE AVAILABLE image show up
+ 2) Should make the desciption field be a "textarea"
+ 3) Make the lists scrollable
+
+2 July
+------
+Alex Salomon - Time Spent: 8h
+- Got together with Kyle at university and worked on the assignment for 8h
+	- Brad joined us after work
+- Read the recently posted "Customer Test Framework" pdf and made all the necessary changes
+- Got the Batch Files working with Kyle's help
+- Added CustomerDisplayCategoryItems, CustomerDisplaySearchedItems, CustomerKeepTrackOfItems,
+	CustomerMainTainAccInfo, and StaffModifyingItems customer tests
+- Finished substituting the pseudo-code I had for the customer tests with the real scripts
+- Modified StaffWindow, CustomerWindow, Main and MainWindow several times
+- Added methods to those classes in order to have some operations done in the customer tests
+- Found several bugs in the customer test and fixed it
+- Found bugs in the software by running the tests and notified the rest of the group
+- TODO:
+	StaffModifyingItems fails. When selecting an item in the table, the listener is not being
+	informed.
+
+Kyle MacKinnon - Time Spent: 9h 30m
+-Formatted Source Code, Organized Imports, Removed Temp DB Files
+-Added extra files to Compile.bat (src\org\eclipse\wb\swt\*.java for that wierd extra package that got added)
+-Fixed CalculateCostsTest.java to work with the new ShoppingCart object
+-Added an initialize method to the DataAccess inteface which wipes all the db tables
+-Fixed some bugs in DataAccessObject and StaffWindow
+-Work on batch files with Alex
+-Added extra database script file with lots of actual ACME stuff. Somewhere should include a notice that most
+ descriptions were pulled verbatim from http://looneytic.com/index.html
+-Added FileCopier for text files
+-Added integration tests on the actual database to match all the ones we currently had for the stub
+--NOTE: Need to add an ItemCategories unit test in the stub and corresponding integration test in the actual db
+-Fixed the updateShoppingCart method in dataAccessObject
+-Clean up the batch files
+-Fixed Shutdown Compact statement, was trying to execute as a query before
+-----YEAH NO MORE STUPID TEMPORARY FILES-----
+
+Brad - Time Spend: 3h
+-Me and Kyle fixed an error in the getShoppingCart where it would create a new
+shopping cart everytime it found a new entry from the database, meaning that it would only
+ever return a shopping cart with a list of ONE item
+-changed default sizes of windows
+-fixed various small things in ShoppingCartWindow and CustomerWindow
+-replaced delete/insert statements with update statements for the AccessShoppingCart
+functions calls in the CustomerWindow and ShoppingCartWindow
+
+1 July
+------
+Alex Salomon - Time Spent: 3h
+- Substituted more of the pseudo code I wrote for the customer tests
+- Updated setClasspath.bat and added RunATs.bat
+- added atf.jar and ctunit.jar libraries
+
+Kyle MacKinnon - Time Spent: 30m
+-Fixed BUG 1) Below - Happened only when updating the Item Name and not rebuilding the currItemCategories list
+					  before trying to update that. Also got rid of the print statement.
+
+Brad - Time Spent: 6h
+-textUserID is now readonly, so you can't edit it so this shouldn't trigger that number format
+exception
+-changed it so that if a user enters a new user with any blank fields, the creation process will fill in strings
+of "Empty Value" for each empty field and create the new user that way. I tried using just JOptionPane.showMessageDialog
+to show the user an error message, but it wouldn't pop up to the front of the windows making it hard to see/find and
+could cause the program to freeze/crash
+-fixed it so that buttons would turn off more appropriatly in the users window then removing items
+-also once an item is removed it defaults to the first list item being selected
+-changed functionality of checkoutbutton in the shoppingCardWindow 
+-Added in new CheckOutWindow class and developed it's functionality
+-changed functionality of CalculateCosts to now take a shopping cart instead
+of an arraylist of items
+-CheckOutWindow now displays the correct total for the shopping cart order
+	-NOTE-This might break some tests, haven't checked yet
+	
+	--Note: I got more to work on tomorrow after work, I haven't completly tested
+	the functionality of the checkout feature.
+
+30 June
+-------
+Alex Salomon - Time Spent: 7h
+- Analyzed the sample code and CTUnit example posted in the sample repository
+- Took some time to get it running (I forgot the repository had a different version of the swt library. 
+	after some time I was able to get it running)
+- Wrote all tests in pseudo code and started substituting it for the real script
+- Found three bugs in the application and two things we should fix :(
+	BUGS: 	1)When trying to edit the information of an item, after clicking on the update button a 
+				"Tuple not inserted correctly" message appears. It seems to be working despite that, though
+			2) When trying to update information in an user, the message " cannot be changed to a number." shows
+				up. Despite the fact that there shouldn't be such message, there is no good context in the
+				message shown, as I could not figure out the problem just be reading it.
+		 	3)There is no input validation in the user gui, therefore I can add empty users and invalid data
+		 	4) When adding an item, it is possible to add an empty item, (no name/description/price/quantity)
+		 	5)I think we should make the search for items case insensitive.
+		 	
+TODO: 	- Finish the scripts and split them in different files
+		- Write batch files to run it
+
+28 June
+-------
+Group Meeting - Time Spent: 30m
+- Divided up developer tasks
+- Tagged Iteration2 version in the repository
+
+23 June
+-------
+Group Meeting - Time Spent: 1h
+- Went over user/developer stories for iteration 3
+
+21 June
+-------
+Alex Salomon - Time Spent: 1h
+- Finalized all tests, added the classes to the AllTests.class
+- Fixed a bug in the database stub with Kyle
+
+Kyle MacKinnon - Time Spent: 1h 30m
+-Updated README.txt
+-Compiled list of user and developer stories into User Stories.txt
+-Added constraint to database that User can only have one entry per Item_Id in a Shopping Cart
+-Fixed a bug in the select statement for getting shopping carts in the DataAccessObject
+-Added RestoreDB.bat file to restore database to original conditions
+
+Brad - Time Spent: 3h
+-Fixed User page, now works properly with database
+-Most of shopping cart page works, always seems to add in Item 1 = 1 as a default for
+any shopping cart
+
+*need to do a user list update when focus is shifted to the main page to update
+that list there(iteration 3)
+
+20 June
+-------
+Alex Salomon - Time Spent: 4h
+- Modified the User class
+- Modified the Shopping Cart class
+- Created AccessShoppingCart class
+- Created/Updated tests (User, ItemCategory, Item, ShoppingCart)
+	(found a bug in the Item constructor! we were not declaring imageFileName)
+	P.S.: In the equals method for shopping cart we are saying that if a cart has the same
+	userID as the other cart, it is the same object. However it is not impossible
+	to create two different carts with the same userID.
+
+Kyle MacKinnon - Time Spent: 4h
+-Fixed the build scripts to properly take into account upgrade to JUnit 4.8 and include 
+ the new tests.persistence package
+-Added Users and ShoppingCart tables to database
+-Added functionality in the DataAccessObject for Users(select/insert/update/delete), ShoppingCarts(select/insert/update/delete)
+-Added functionality in the DataAccessStub for ShoppingCarts(select/insert/update/delete)
+-Added small one-liner to fix errors on tests, forgot to initialize arraylist
+ 
+Brad - Time Spent: 8h
+-Fixed layout on main window(added in a composite to make it look nicer
+-fixed selected user after creating a new user(should be the one just added)
+-adding in shopping cart window
+-modified customer window to contain appropriate buttons to add to shopping cart
+--in the shopping cart window you can edit(modify quantity), and remove from the shopping cart.
+-Need access Shopping cart business object(has array of products, a user linked to it)
+-added in additional method to check size of users list in access users,
+I was getting an error where it would iterate forever in a list of 1 user so
+I had to implement this in order for our program to actually load in users.
+- disabled editable type dropdown list in user window
+- disabled checkOut button(implement in iteration 3)
+- force user to select either customer or staff when creating a new user
+- grayed out customer history(for iteration 3 implementation)
+
+*update staff fix
+*we need to store the last instance of userID generated in the database,
+it works fine when you create more than one user on the same instance of running
+a program, but if you close the program and create a new user it starts at 0
+again.
+
+19 June
+-------
+Brad - Time Spent:7h
+-Played around with WindowBuilder Pro trying to learn how use it (Spike)
+-Add Drop down list of users, the one selected will be used in the customer window
+-Added the "Users" button on the main page, takes the user to a page where they can
+add/remove/edit/update their information. In there they can also see the history of their
+bought orders(to implement in Iteration 3 as per big user stories guide)
+
+-Need the getSequential working for the Users stuff
+-Need a list of types of users(default list?)(Customer, Staff, other?)
+-db update/create/remove needs implementation
+
+19 June
+-------
+Alex Salomon - Time Spent: 5:30h
+- Reviewed iteration 1 implementations, organized and discussed ideas with the group
+- Implemented new variables for User class, new constructor, new updateUserMethod
+- Implemented tests for the user class regarding the new implementation
+- Created Shopping cart class
+	*Shopping cart has an ArrayList of items (not strings) since we need more information about
+	 the items in order to calculate total price and etc.
+	P.S.: In order to make it store pointers for the items and not new items, whenever
+			adding an item to the list do not use the keyword "new" you have to pass an 
+			existent item to it.
+- Created CalculateCosts class, implementing test codes using TDD
+
+18 June
+-------
+Kyle MacKinnon - Time Spent: 3h 30m Later on in the evening
+-Add persistence layer select/insert/update/delete calls for ItemCategory objects
+--Updated HSQLDB to version 2.2.4 because the old version wouldn't run my complex delete query (MAD_FACE)
+-Modified Items/Categories to no longer be aware of each other
+-Modified Presentation layer to take this into account
+-Fixed bug in SQL insert statement for ItemCategories
+TODO: Create ItemCategory tests/AccessItemCategory tests
+
+Kyle MacKinnon - Time Spent: 4h
+-Finished all the insert/update/delete/select calls for Items and Categories in DataAccessObject.java
+-Add ON CASCADE DELETE to the foreign key constraints in the JoinItemsCategories table in the script
+-Changed default DataAccess to be DataAccessObject instead of DataAccessStub
+-Moved DataAccessStub to tests.persistence package
+-Created Persistence tests
+-Upgraded to JUnit4.8 and updated all of the tests to support this
+--Reason: @BeforeClass and @AfterClass anotations to run setup and teardown code once only for each test class
+		  this is (kind of) required now that the default DataAccess object is the actual database and this
+		  must be changed in each test to use the stub. Note: There are ways around this using the old JUnit but
+		  this is far more readable and an equal amount of effort.
+-Added the ItemCategory Object and associated business logic AccessItemCategory and persistence layer select calls
+
+-TODO: Add user object functionality to the db
+-TODO: Add persistence layer insert/update/delete calls for ItemCategory objects
+-TODO: Modify items/category objects to no longer be aware of each other
+-TODO: Modify presentation layer to take this into account
+
+17 June
+-------
+Kyle MacKinnon - Time Spent: 5h 15m
+-Research HSQLDB usage and setup
+-Added Shell Script to run HSQLDBManagerSwing
+-Experiment with DB Table design
+-Extracted DataAccessStub into an interface and updated application to use that interface
+-Added DataAccessObject with SOME functionality, still set to start using stub
+--if you want to try it out switch:
+	dataAccessService = new DataAccessStub(dbName);
+--to
+	dataAccessService = new DataAccessObject(dbName);
+--in method: public static DataAccess createDataAccess(String dbName) in Services.java 
+
+14 June
+------
+Group Meeting - Time Spent: 1h 15m
+ 
+-Generated our developer tasks for iteration 2:
+
+Brad
+5h - Familiarize self with WindowBuilder
+2h - make pages (1 page - users)
+2h - modify existing customer page
+2h - write code for event listeners
+2h - modify home page (user select)
+5h - shopping cart addition
+
+Alex
+2h - User Objects - Last name, first name, birthday, address
+4h - shopping cart class object
+3h - business logic object to get shopping cart list
+3h - add to shopping cart
+3h - delete from shopping cart
+3h - Calculate shopping total business logic class
+
+Kyle
+4h - Familiarize self with database lib
+3h - Database initialize
+3h - Search DB
+3h - Insert into DB
+3h - Delete from DB
+1h - Script for database - fill values at start
+
+Last to implement
+-Buying items (possible move to iteration 3)
+
+6 June
+------
+Brad
+-Tagged Iteration1 Version in the Repository
+
+1 June
+------
+Brad - Time Spent 3h
+-fixed run/compile scripts to properly put the user in the Batch Files
+folder once they execute a command
+-Switched order in compile.bat file of the swt libraries
+-Fixed failing unit test, added a check for null when trying to delete
+null from the items list. Also added in a message when a unit test method completes
+-Added output from JUnit tests to AllTests.txt in ACME folder. This is created
+by running compile.bat
+-Added in Junit test for the FileCopier object and more tests for AccessUsersTest
+-Made Architecture picture for handin
+-Made file for developer tasks
+
+1 June
+------
+Kyle MacKinnon - Time Spent: 2h 30m
+NOTE: We need to have something like SRSYS SC class for our category/item thing,
+having items contain list of categories and categories contain list of items makes them 
+very very easy to only update the item's list and not the category's etc. I have added correct 
+logic for now to properly cover this but this should be fixed up before we add new features.
+
+-Fix up business logic unit tests for new method of updates
+-Fix up object tests for the initialization of arraylist to empty instead of null
+-Fix bug in DataAccessStub in getUser(User user) method where user.getId() was being 
+passed to equals method instead of just user
+-Add ability to see/edit categories that the currently selected item has in staff gui
+-Add customer gui functionality
+
+31 May 
+------
+Alex Salomon - Time spent 8h (2h morning + 3h afternoon + 3h evening)
+
+-Created the "contains" method under Item
+-Made changes in the design and functionality of some methods in the classes AccessItems, DataAccessStub, Item, User, Category
+-Implemented tests for AccessItem and Item classes, fixing bugs on the way
+-Deleted interface Equalized and modified the "equals" methods 
+	(Now ArrayList's methods that needed the equals method such as indexOf 
+	and delete work)
+- Fixed addCategory, removeCategory and now when you create an item, the categories
+	list is automatically created. It will never be equal to null, therefore no need to worry about it	
+- Fixed the equals methods: was breaking if a null object was sent to it
+- Fixed addItem(), removeItem() from Category class
+
+31 May
+------
+Kyle MacKinnon - Time Spent: 4h
+-Add more functionality to staff gui, now works as supposed to except for displaying which
+categories the currently displayed item is a member of
+-resolve conflicts
+-work with Brad on updating windows batch file to copy correct version of swt based on %PROCESSOR_ARCHITECTURE% variable
+
+31 May
+------
+Brad - Time Spend: 6h
+-Changed around functionality for the methods in the DataAccessStub to iterate through a list
+instead of using the compareTo method.
+-Added in the update methods to each class, along with the equals methods.
+-added in the update methods to the DataAccessStub class
+-Changed behaviour of the get item/category/user to get my object instead of string
+-Worked with Kyle to dynamically change the swt lib via the compile command.bat based
+on if the user has a 64 or 32 bit processor
+
+
+30 May
+------
+Kyle MacKinnon - Time Spent: 2h 30m
+-Add some functionality to staff gui
+
+30 May 
+------
+Alex Salomon - Time spent 1h 30m
+-Got together with the group and fixed some design characteristics
+-Changed the get"X" methods in the access classes
+-Small changes on Category, User, Item classes
+-Created Equalized Interface
+-Modified DataAccessStub class
+
+30 May
+------
+Group Meeting - Time Spent: 1h
+-Discuss combining our work from over the weekend
+
+29 May
+------
+Alex Salomon - Time Spent 3h 30m
+-Created the AccessItems, AccessCategories, AccessUsers classes
+-Edited the DataAccessStub
+-Small modifications on the User class (addes variables lastname and firstname)
+		also added a new constructor to Category.
+
+27 May
+------
+Kyle MacKinnon - Time Spent: 5h 30m
+-Create the staff gui
+-Create the customer gui
+-TODO: Add event behaviours
+
+27 May
+------
+Brad - Time Spent: 4h
+-Added in Category/Item/User classes
+-Added in JUnit tests for Category/Item/User classes
+-Need to add in a few more Junit Tests, going to work on that on Sunday
+
+26 May
+------
+Kyle MacKinnon - Time Spent: 4h
+-Learn how to use WindowBuilderPro
+-Create the MainWindow.java file
+
+26 May
+------
+Group Meeting - Time Spent: 1h 30m
+-Add README.txt to version control
+ 
+-Generated our developer tasks for iteration 1:
+--User Story Level Tasks
+--Staff Modifying Items (WORK ON FIRST)
+---Bradley - 1d : Create Business Objects/Logic for ACME products
+---Alex    - 2d : Create DAOs for modifying items in the STUB DB model
+---Kyle    - 2d : Create GUI to allow user to modify items for the current session calling the business logic
+---All     - 3d : Create Unit Tests for the Business Objects/Logic
+
+--Customer Display Category Items (WORK ON SECOND)
+---Alex    - 1d : Allow Stub DAO to filter by category
+---Bradley - 1d : Add Business Logic calling the DAOs to return products of a certain category
+---Kyle    - 1d : Create GUI to allow user to display items in a certain category
+
+--Customer Display Searched Items (WORK ON THIRD)
+---Alex    - 1d : Allow Stub Data Access Object (DAO) to filter by keyword
+---Bradley - 1d : Add Business Logic calling the DAOs to return products with some keywords
+---Kyle    - 1d : Create GUI to allow user to display items matching typed in keywords
+
+20 May
+------
+Kyle MacKinnon - Time Spent: 2h 30m
+-Added this file
+-Renamed packages and associated references to have acme prefix instead of srsys
+-Updated batch files with same string replacement
+-Added shell scripts to duplicate same functionality as batch files for mac osx and tested
+
+19 May
+------
+Group Meeting - Time Spent: 1h
+-Went over overall strategy for iteration 1
+-Assigned separate parts to work on while not with the group
+--Alex: DB
+--Kyle: GUI
+--Brad: Business Objects/Logic

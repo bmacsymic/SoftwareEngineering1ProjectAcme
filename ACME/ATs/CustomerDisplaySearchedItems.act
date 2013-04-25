@@ -1,0 +1,99 @@
+Include                 	common.def
+
+InvokeMethod				acme.application.Main					resetDatabaseToCTdefault
+
+InvokeMethod            	acme.application.Main              		startUp
+
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			0
+
+UserClicksButton        	acme.presentation.MainWindow      		customerButton
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+	
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 1"
+
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 2"
+
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM 3"
+
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			"ITEM"
+
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 1"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 2"
+
+UserSelectsList				acme.presentation.CustomerWindow		lstProducts			"ITEM 3"
+
+UserSetsTextField			acme.presentation.CustomerWindow		txtSearch			random
+
+UserClicksButton       		acme.presentation.CustomerWindow      	btnSearch
+
+UserClicksButton       	 	acme.presentation.CustomerWindow		btnExit
+
+UserSelectsComboByIndex		acme.presentation.MainWindow			usersList			1
+
+UserClicksButton        	acme.presentation.MainWindow      		staffButton
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 1"
+
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 2"
+
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM 3"
+
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			"ITEM"
+
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 1"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow			productsTable		"Product Name"	"ITEM 3"
+
+UserSetsTextField			acme.presentation.StaffWindow			txtSearch			random
+
+UserClicksButton       		acme.presentation.StaffWindow      		btnSearch
+
+UserClicksButton       		acme.presentation.StaffWindow			btnExit
+	
+UserClicksButton        	acme.presentation.MainWindow			exitButton
+
+InvokeMethod				acme.application.Main					shutDown
+
+InvokeMethod				acme.application.Main					resetDatabaseToOriginalState

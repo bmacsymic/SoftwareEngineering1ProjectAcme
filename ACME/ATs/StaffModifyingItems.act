@@ -1,0 +1,79 @@
+Include                		common.def
+
+InvokeMethod				acme.application.Main				resetDatabaseToCTdefault
+
+InvokeMethod            	acme.application.Main              	startUp
+
+UserSelectsComboByIndex		acme.presentation.MainWindow		usersList			1
+
+UserClicksButton        	acme.presentation.MainWindow       	staffButton
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 3"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 1"
+
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+
+TestTextField          		acme.presentation.StaffWindow		txtName				"ITEM 1"
+
+TestTextField         		acme.presentation.StaffWindow		txtDescription		desc1
+
+TestTextField           	acme.presentation.StaffWindow		txtPrice			"10.0"
+
+TestTextField           	acme.presentation.StaffWindow		txtQuantity			100
+
+UserSetsTextField       	acme.presentation.StaffWindow		txtName				Test
+
+UserSetsTextField       	acme.presentation.StaffWindow		txtQuantity			1000
+
+UserClicksButton        	acme.presentation.StaffWindow		btnUpdate
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"Test"
+
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+
+TestTextField          		acme.presentation.StaffWindow		txtName				"Test"
+
+TestTextField         		acme.presentation.StaffWindow		txtDescription		desc1
+
+TestTextField           	acme.presentation.StaffWindow		txtPrice			10.0
+
+TestTextField           	acme.presentation.StaffWindow		txtQuantity			1000
+
+UserClicksButton        	acme.presentation.StaffWindow		btnRemove
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 2"
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 3"
+
+UserSetsTextField       	acme.presentation.StaffWindow		txtName				"ITEM 1"
+
+UserSetsTextField       	acme.presentation.StaffWindow		txtDescription		test
+
+UserSetsTextField          	acme.presentation.StaffWindow		txtPrice			10.0
+
+UserSetsTextField          	acme.presentation.StaffWindow		txtQuantity			100
+
+UserClicksButton        	acme.presentation.StaffWindow		btnAdd
+
+UserSelectsTableRowByValue  acme.presentation.StaffWindow		productsTable		"Product Name"	"ITEM 1"
+
+InvokeMethod				acme.presentation.StaffWindow		mapTableSelectionToDetails
+
+TestTextField       		acme.presentation.StaffWindow		txtName				"ITEM 1"
+
+TestTextField     		  	acme.presentation.StaffWindow		txtDescription		test
+
+TestTextField      	    	acme.presentation.StaffWindow		txtPrice			10.0
+
+TestTextField      	    	acme.presentation.StaffWindow		txtQuantity			100
+
+UserClicksButton    	    acme.presentation.StaffWindow		btnExit
+
+UserClicksButton    	    acme.presentation.MainWindow		exitButton
+
+InvokeMethod				acme.application.Main				shutDown
+
+InvokeMethod				acme.application.Main				resetDatabaseToOriginalState

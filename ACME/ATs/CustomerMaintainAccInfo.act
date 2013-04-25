@@ -1,0 +1,71 @@
+Include                 common.def
+
+InvokeMethod			acme.application.Main			resetDatabaseToCTdefault
+
+InvokeMethod            acme.application.Main			startUp
+
+UserClicksButton        acme.presentation.MainWindow	usersButton
+
+UserClicksButton        acme.presentation.UsersWindow	btnAdd
+
+UserSetsTextField       acme.presentation.UsersWindow	textFirstName			first
+
+UserSetsTextField       acme.presentation.UsersWindow	textLastName			last
+
+UserSetsTextField       acme.presentation.UsersWindow	textBirthdate			"01/01/1900"
+
+UserSetsTextField       acme.presentation.UsersWindow	textStreetAddress		"300 - Chancellor Dr."
+
+UserSetsTextField       acme.presentation.UsersWindow	textPostalCode			"R3T-8T8"
+
+UserSetsTextField       acme.presentation.UsersWindow	textCity				Winnipeg
+
+UserSetsTextField       acme.presentation.UsersWindow	textProvince			Manitoba
+
+UserSetsTextField       acme.presentation.UsersWindow	textCountry				Canada
+
+UserSetsTextField       acme.presentation.UsersWindow	textPhoneNumber			"(204)295-2929"
+
+UserSetsTextField       acme.presentation.UsersWindow	textEmail				"email@email.ca"
+
+TestComboValue			acme.presentation.UsersWindow	comboType				Customer
+
+UserClicksButton        acme.presentation.UsersWindow	btnAdd
+
+UserClicksButton        acme.presentation.UsersWindow	btnEdit
+
+UserSetsTextField       acme.presentation.UsersWindow	textFirstName			NewFirsty
+
+UserSetsTextField       acme.presentation.UsersWindow	textLastName			NewLasty
+
+UserClicksButton        acme.presentation.UsersWindow	btnUpdate
+
+TestTextField           acme.presentation.UsersWindow	textFirstName			NewFirsty
+
+TestTextField           acme.presentation.UsersWindow	textLastName			NewLasty
+
+TestTextField      		acme.presentation.UsersWindow    textBirthdate			"01/01/1900"
+
+TestTextField       	acme.presentation.UsersWindow    textStreetAddress		"300 - Chancellor Dr."
+
+TestTextField       	acme.presentation.UsersWindow    textPostalCode			"R3T-8T8"
+
+TestTextField       	acme.presentation.UsersWindow    textCity				Winnipeg
+
+TestTextField       	acme.presentation.UsersWindow    textProvince			Manitoba
+
+TestTextField       	acme.presentation.UsersWindow    textCountry			Canada
+
+TestTextField       	acme.presentation.UsersWindow    textPhoneNumber		"(204)295-2929"
+
+TestTextField       	acme.presentation.UsersWindow    textEmail				"email@email.ca"
+
+UserClicksButton        acme.presentation.UsersWindow	btnRemove
+
+UserClicksButton        acme.presentation.UsersWindow	btnExit
+
+UserClicksButton        acme.presentation.MainWindow	exitButton
+
+InvokeMethod			acme.application.Main			shutDown
+
+InvokeMethod			acme.application.Main			resetDatabaseToOriginalState
